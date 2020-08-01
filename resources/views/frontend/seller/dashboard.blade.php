@@ -176,6 +176,12 @@
                                     <p>{{__('Manage & organize your shop')}}</p>
                                     <a href="{{ route('shops.index') }}" class="btn btn-styled btn-base-1 btn-outline btn-sm">{{__('Go to setting')}}</a>
                                 </div>
+
+                                <div class="bg-white mt-4 p-4 text-center">
+                                    <div class="heading-4 strong-700">{{__('Shipping')}}</div>
+                                    <p>{{__('Manage & organize your shop')}}</p>
+                                    <a href="{{ route('shipping_agents.index') }}" class="btn btn-styled btn-base-1 btn-outline btn-sm">{{__('Go to setting')}}</a>
+                                </div>
                                 <div class="bg-white mt-4 p-4 text-center">
                                     <div class="heading-4 strong-700">{{__('Payment')}}</div>
                                     <p>{{__('Configure your payment method')}}</p>

@@ -122,7 +122,7 @@
                                 </div>
                                 @if (\App\BusinessSetting::where('type', 'conversation_system')->first()->value == 1)
                                     <div class="col-auto">
-                                        <button class="btn" onclick="show_chat_modal()">{{__('Message Seller')}}</button>
+                                        <button class="btn" onclick="show_chat_modal()">{{__('Message Admin')}}</button>
                                     </div>
                                 @endif
                             </div>

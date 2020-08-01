@@ -85,7 +85,7 @@
                             <li>
                                 <a href="#">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span class="menu-title">{{__('Products')}}</span>
+                                    <span class="menu-title">{{__('Products Managemnt')}}</span>
                                     <i class="arrow"></i>
                                 </a>
 
@@ -216,7 +216,7 @@
                         <li>
                             <a href="#">
                                 <i class="fa fa-user-plus"></i>
-                                <span class="menu-title">{{__('Sellers')}}</span>
+                                <span class="menu-title">{{__('Vendors Management')}}</span>
                                 <i class="arrow"></i>
                             </a>
 
@@ -227,10 +227,10 @@
                                         $sellers = \App\Seller::where('verification_status', 0)->where('verification_info', '!=', null)->count();
                                         //$withdraw_req = \App\SellerWithdrawRequest::where('viewed', '0')->get();
                                     @endphp
-                                    <a class="nav-link" href="{{route('sellers.index')}}">{{__('Seller List')}} @if($sellers > 0)<span class="pull-right badge badge-info">{{ $sellers }}</span> @endif</a>
+                                    <a class="nav-link" href="{{route('sellers.index')}}">{{__('Vendor List')}} @if($sellers > 0)<span class="pull-right badge badge-info">{{ $sellers }}</span> @endif</a>
                                 </li>
                                 <li class="{{ areActiveRoutes(['withdraw_requests_all'])}}">
-                                    <a class="nav-link" href="{{ route('withdraw_requests_all') }}">{{__('Seller Withdraw Requests')}}</a>
+                                    <a class="nav-link" href="{{ route('withdraw_requests_all') }}">{{__('Seller Withdraw Requests')}}</a> 
                                 </li>
                                 <li class="{{ areActiveRoutes(['sellers.payment_histories'])}}">
                                     <a class="nav-link" href="{{ route('sellers.payment_histories') }}">{{__('Seller Payments')}}</a>
@@ -254,7 +254,7 @@
                         <li>
                             <a href="#">
                                 <i class="fa fa-user-plus"></i>
-                                <span class="menu-title">{{__('Customers')}}</span>
+                                <span class="menu-title">{{__('Customers Managemnt')}}</span>
                                 <i class="arrow"></i>
                             </a>
 

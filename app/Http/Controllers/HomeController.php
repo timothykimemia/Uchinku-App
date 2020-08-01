@@ -17,6 +17,8 @@ use App\CustomerPackage;
 use App\CustomerProduct;
 use App\User;
 use App\Seller;
+use App\Shippingagent;
+use App\Shipping;
 use App\Shop;
 use App\Color;
 use App\Order;
@@ -65,7 +67,7 @@ class HomeController extends Controller
 
     public function cart_login(Request $request)
     {
-        $user = User::whereIn('user_type', ['customer', 'seller'])->where('email', $request->email)->first();
+        $user = User::whereIn('user_type', ['customer', 'seller','shippingagent'])->where('email', $request->email)->first();
         if($user != null){
             updateCartSetup();
             if(Hash::check($request->password, $user->password)){
@@ -110,6 +112,10 @@ class HomeController extends Controller
         if(Auth::user()->user_type == 'seller'){
             return view('frontend.seller.dashboard');
         }
+    
+    elseif(Auth::user()->user_type == 'shippingagent'){
+        return view('frontend.shippin_agents.dashboard');
+    }
         elseif(Auth::user()->user_type == 'customer'){
             return view('frontend.customer.dashboard');
         }
@@ -123,6 +129,11 @@ class HomeController extends Controller
         if(Auth::user()->user_type == 'customer'){
             return view('frontend.customer.profile');
         }
+        
+        elseif(Auth::user()->user_type == 'shippingagent'){
+            return view('frontend.shipping_agent.profile');
+        }
+
         elseif(Auth::user()->user_type == 'seller'){
             return view('frontend.seller.profile');
         }
@@ -165,7 +176,7 @@ class HomeController extends Controller
         $user->city = $request->city;
         $user->postal_code = $request->postal_code;
         $user->phone = $request->phone;
-
+    
         if($request->new_password != null && ($request->new_password == $request->confirm_password)){
             $user->password = Hash::make($request->new_password);
         }
@@ -359,6 +370,7 @@ class HomeController extends Controller
         $subsubcategories = SubSubCategory::where('name', 'like', '%'.$request->search.'%')->get()->take(3);
 
         $shops = Shop::whereIn('user_id', verified_sellers_id())->where('name', 'like', '%'.$request->search.'%')->get()->take(3);
+        $shipping_agents = Shipping::whereIn('user_id', verified_sellers_id())->where('name', 'like', '%'.$request->search.'%')->get()->take(3);
 
         if(sizeof($keywords)>0 || sizeof($subsubcategories)>0 || sizeof($products)>0 || sizeof($shops) >0){
             return view('frontend.partials.search_content', compact('products', 'subsubcategories', 'keywords', 'shops'));

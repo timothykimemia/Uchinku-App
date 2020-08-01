@@ -149,6 +149,7 @@
         @if (\App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1)
             <div class="widget-seller-btn pt-4">
                 <a href="{{ route('shops.create') }}" class="btn btn-anim-primary w-100">{{__('Be A Seller')}}</a>
+                <a href="{{ route('shipping_agents.create') }}" class="btn btn-anim-primary w-100">{{__('Be A Shipping agent')}}</a>
             </div>
         @endif
     </div>

@@ -217,7 +217,7 @@
                                     <label>{{__('Phone')}}</label>
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control mb-3" placeholder="{{__('+880')}}" name="phone" value="" required>
+                                    <input type="text" class="form-control mb-3" placeholder="{{__('+254')}}" name="phone" value="" required>
                                 </div>
                             </div>
                         </div>

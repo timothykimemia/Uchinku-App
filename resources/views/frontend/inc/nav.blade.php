@@ -280,6 +280,12 @@
                                     <span>{{__('Shop Setting')}}</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('shipping_agents.index') }}">
+                                    <i class="la la-cog"></i>
+                                    <span>{{__('Shipping settings')}}</span>
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="{{ route('withdraw_requests.index') }}">

@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsSeller;
+use App\Http\Middleware\IsShippingagent;
 use App\Http\Middleware\IsUser;
 use App\Http\Middleware\CheckoutMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -59,6 +60,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'admin' => IsAdmin::class,
         'seller' => IsSeller::class,
+        'shippingagent' => IsShippingagent::class,
         'user' => IsUser::class,
         'checkout' => CheckoutMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,

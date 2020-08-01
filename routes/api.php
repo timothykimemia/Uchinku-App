@@ -70,6 +70,15 @@ Route::prefix('v1')->group(function () {
     Route::get('shops/brands/{id}', 'Api\ShopController@brands')->name('shops.brands');
     Route::apiResource('shops', 'Api\ShopController')->only('index');
 
+    Route::get('shipping_agents/user/{id}', 'Api\ShippingController@shippingOfUser')->middleware('auth:api');
+    Route::get('shipping_agents/details/{id}', 'Api\ShippingCont@info')->name('sho.info');
+    Route::get('shops/products/all/{id}', 'Api\ShopController@allProducts')->name('shops.allProducts');
+    Route::get('shops/products/top/{id}', 'Api\ShopController@topSellingProducts')->name('shops.topSellingProducts');
+    Route::get('shops/products/featured/{id}', 'Api\ShopController@featuredProducts')->name('shops.featuredProducts');
+    Route::get('shops/products/new/{id}', 'Api\ShopController@newProducts')->name('shops.newProducts');
+    Route::get('shops/brands/{id}', 'Api\ShopController@brands')->name('shops.brands');
+    Route::apiResource('shops', 'Api\ShopController')->only('index');
+
     Route::apiResource('sliders', 'Api\SliderController')->only('index');
 
     Route::get('wishlists/{id}', 'Api\WishlistController@index')->middleware('auth:api');

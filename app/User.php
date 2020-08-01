@@ -45,6 +45,12 @@ class User extends Authenticatable implements MustVerifyEmail
     return $this->hasOne(Seller::class);
     }
 
+    public function Shippingagent()
+    {
+    return $this->hasOne(Shippingagent::class);
+    }
+
+
     public function affiliate_user()
     {
     return $this->hasOne(AffiliateUser::class);
@@ -56,6 +62,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function shop()
+    {
+    return $this->hasOne(Shop::class);
+    }
+    public function Shipping()
     {
     return $this->hasOne(Shop::class);
     }
