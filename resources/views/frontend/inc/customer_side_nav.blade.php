@@ -130,6 +130,17 @@
                         </a>
                     </li>
                 @endif
+
+                @if (\App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null && \App\Addon::where('unique_identifier', 'shippingagent_system')->first()->activated && Auth::user()->shippingagent_user != null && Auth::user()->shippingagent_user->status)
+                <li>
+                    <a href="{{ route('shippingagent.user.index') }}" class="{{ areActiveRoutesHome(['shippingagent.user.index', 'shippingagent.payment_settings'])}}">
+                        <i class="la la-dollar"></i>
+                        <span class="category-name">
+                            {{__('Shipping management')}}
+                        </span>
+                    </a>
+                </li>
+            @endif
                 @php
                     $support_ticket = DB::table('tickets')
                                 ->where('client_viewed', 0)
@@ -149,7 +160,7 @@
         @if (\App\BusinessSetting::where('type', 'vendor_system_activation')->first()->value == 1)
             <div class="widget-seller-btn pt-4">
                 <a href="{{ route('shops.create') }}" class="btn btn-anim-primary w-100">{{__('Be A Seller')}}</a>
-                <a href="{{ route('shipping_agents.create') }}" class="btn btn-anim-primary w-100">{{__('Be A Shipping agent')}}</a>
+                {{-- <a href="{{ route('shipping_agents.create') }}" class="btn btn-anim-primary w-100">{{__('Be A Shipping agent')}}</a> --}}
             </div>
         @endif
     </div>

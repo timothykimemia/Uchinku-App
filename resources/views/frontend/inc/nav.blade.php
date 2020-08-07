@@ -59,6 +59,16 @@
                                 <a href="{{ route('affiliate.apply') }}" class="top-bar-item">{{__('Be an affiliate partner')}}</a>
                             </li>
                         @endif
+                        @if (\App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null && \App\Addon::where('unique_identifier', 'shippingagent_system')->first()->activated)
+                        <li>
+                            <a href="{{ route('shippingagent.apply') }}" class="top-bar-item">{{__('Be Shipping Agent ')}}</a>
+                        </li>
+                        @endif
+                        <li>
+                            <a href="{{ route('shops.create') }}" class="top-bar-item">{{__('Be a vendor')}}</a>
+                        </li>
+
+                    
                         @auth
                         <li>
                             <a href="{{ route('dashboard') }}" class="top-bar-item">{{__('My Panel')}}</a>

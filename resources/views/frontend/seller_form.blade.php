@@ -31,7 +31,7 @@
                             @if (!Auth::check())
                                 <div class="form-box bg-white mt-4">
                                     <div class="form-box-title px-3 py-2">
-                                        {{__('User Info')}}
+                                        {{__('Legal Representative Contact person')}}
                                     </div>
                                     <div class="form-box-content p-3">
                                         <div class="row">
@@ -94,15 +94,23 @@
                             @endif
                             <div class="form-box bg-white mt-4">
                                 <div class="form-box-title px-3 py-2">
-                                    {{__('Basic Info')}}
+                                    {{__('Basic shop Info')}}
                                 </div>
                                 <div class="form-box-content p-3">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <label>{{__('Shop Name')}} <span class="required-star">*</span></label>
+                                            <label>{{__('Shop Name English')}} <span class="required-star">*</span></label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name')}}" name="name" required>
+                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name English')}}" name="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>{{__('Shop Name Chinese')}} <span class="required-star">*</span></label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name chinese')}}" name="name" required>
                                         </div>
                                     </div>
                                     <div class="row">

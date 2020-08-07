@@ -1,0 +1,97 @@
+{
+    "name" : "shippingagent",
+
+    "unique_identifier" : "shippingagent_system",
+
+    "version" : "1.2",
+
+    "minimum_item_version" : "2.4",
+
+    "addon_banner" : "shippingagent_banner.jpg",
+
+    "directory" :
+    [
+        {
+          "name" : ["resources/views/shippingagent", "resources/views/shippingagent/frontend"]
+        }
+    ],
+
+    "sql_file"  : "",
+
+    "files"     :
+    [
+
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/index.blade.php",
+            "update_directory"  : "resources/views/shippingagent/index.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/configs.blade.php",
+            "update_directory"  : "resources/views/shippingagent/configs.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/payment_history.blade.php",
+            "update_directory"  : "resources/views/shippingagent/payment_history.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/payment_modal.blade.php",
+            "update_directory"  : "resources/views/shippingagent/payment_modal.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/show_verification_request.blade.php",
+            "update_directory"  : "resources/views/shippingagent/show_verification_request.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/users.blade.php",
+            "update_directory"  : "resources/views/shippingagent/users.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/frontend/apply_for_shippingagent.blade.php",
+            "update_directory"  : "resources/views/shippingagent/frontend/apply_for_shippingagent.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/frontend/index.blade.php",
+            "update_directory"  : "resources/views/shippingagent/frontend/index.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/frontend/payment_settings.blade.php",
+            "update_directory"  : "resources/views/shippingagent/frontend/payment_settings.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/views/shippingagent/refferal_users.blade.php",
+            "update_directory"  : "resources/views/shippingagent/refferal_users.blade.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/controllers/ShippingagentController.php",
+            "update_directory"  : "app/Http/Controllers/ShippingagentController.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/models/ShippingagentConfig.php",
+            "update_directory"  : "app/ShippingagentConfig.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/models/ShippingagentOption.php",
+            "update_directory"  : "app/ShippingagentOption.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/models/ShippingagentUser.php",
+            "update_directory"  : "app/ShippingagentUser.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/models/ShippingagentEarningDetail.php",
+            "update_directory"  : "app/ShippingagentEarningDetail.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/models/ShippingagentPayment.php",
+            "update_directory"  : "app/ShippingagentPayment.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/routes/shippingagent.php",
+            "update_directory"  : "routes/shippingagent.php"
+        },
+        {
+            "root_directory"    : "addons/shippingagent_system/assets/shippingagent_banner.jpg",
+            "update_directory"  : "public/shippingagent_banner.jpg"
+        }
+    ]
+}

@@ -309,6 +309,8 @@
                                         {{__('Add to compare')}}
                                     </button>
                                     @if(Auth::check() && \App\Addon::where('unique_identifier', 'affiliate_system')->first() != null && \App\Addon::where('unique_identifier', 'affiliate_system')->first()->activated && (\App\AffiliateOption::where('type', 'product_sharing')->first()->status || \App\AffiliateOption::where('type', 'category_wise_affiliate')->first()->status) && Auth::user()->affiliate_user != null && Auth::user()->affiliate_user->status)
+                                    @elseif(Auth::check() && \App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null && \App\Addon::where('unique_identifier', 'shippingagent_system')->first()->activated && (\App\ShippingagentOption::where('type', 'product_sharing')->first()->status || \App\ShippingagentOption::where('type', 'category_wise_shippingagent')->first()->status) && Auth::user()->shippingagent_user != null && Auth::user()->shippingagent_user->status)
+                                       
                                         @php
                                             if(Auth::check()){
                                                 if(Auth::user()->referral_code == null){
@@ -318,6 +320,17 @@
                                                 $referral_code = Auth::user()->referral_code;
                                                 $referral_code_url = URL::to('/product').'/'.$detailedProduct->slug."?product_referral_code=$referral_code";
                                             }
+                                        
+                                        // @if(Auth::check() && \App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null && \App\Addon::where('unique_identifier', 'shippingagent_system')->first()->activated && (\App\ShippingagentOption::where('type', 'product_sharing')->first()->status || \App\ShippingagentOption::where('type', 'category_wise_shippingagent')->first()->status) && Auth::user()->shippingagent_user != null && Auth::user()->shippingagent_user->status)
+                                        // @php
+                                        //     if(Auth::check()){
+                                        //         if(Auth::user()->referral_code == null){
+                                        //             Auth::user()->referral_code = substr(Auth::user()->id.str_random(10), 0, 10);
+                                        //             Auth::user()->save();
+                                        //         }
+                                        //         $referral_code = Auth::user()->referral_code;
+                                        //         $referral_code_url = URL::to('/product').'/'.$detailedProduct->slug."?product_referral_code=$referral_code";
+                                        //     }
                                         @endphp
                                         <div class="form-group">
                                             <textarea id="referral_code_url" class="form-control" readonly type="text" style="display:none">{{$referral_code_url}}</textarea>

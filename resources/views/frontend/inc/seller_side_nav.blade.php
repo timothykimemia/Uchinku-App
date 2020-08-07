@@ -227,6 +227,18 @@
                         </a>
                     </li>
                 @endif
+
+                @if (\App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null && \App\Addon::where('unique_identifier', 'shippingagent_system')->first()->activated && Auth::user()->shippinagent_user != null && Auth::user()->shippingagent_user->status)
+                <li>
+                    <a href="{{ route('shippinagent.user.index') }}" class="{{ areActiveRoutesHome(['shippinagent.user.index', 'shippingagent.payment_settings'])}}">
+                        <i class="la la-dollar"></i>
+                        <span class="category-name">
+                            {{__('Shippinagagent System')}}
+                        </span>
+                    </a>
+                </li>
+            @endif
+
                 @if ($club_point_addon != null && $club_point_addon->activated == 1)
                     <li>
                         <a href="{{ route('earnng_point_for_user') }}" class="{{ areActiveRoutesHome(['earnng_point_for_user'])}}">

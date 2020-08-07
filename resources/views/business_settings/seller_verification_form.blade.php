@@ -61,6 +61,8 @@
 								<li class="list-group-item btn" style="text-align: left;" onclick="appenddToForm('multi-select')">{{__('Multiple Select')}}</li>
 								<li class="list-group-item btn" style="text-align: left;" onclick="appenddToForm('radio')">{{__('Radio')}}</li>
 								<li class="list-group-item btn" style="text-align: left;" onclick="appenddToForm('file')">{{__('File')}}</li>
+								<li class="list-group-item btn" style="text-align: left;" onclick="appenddToForm('calender')">{{__('Calender')}}</li>
+								
 							</ul>
 
 						</div>

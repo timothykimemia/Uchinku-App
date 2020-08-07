@@ -158,13 +158,13 @@
                                     {{__('Apply Now')}}
                                 </a>
                             </div>
-                            <div class="mt-4">
+                            {{-- <div class="mt-4">
                                 <h4 class="heading heading-xs strong-600 text-uppercase mb-2">
                                     {{__('Be a shipping agent')}}
                                 </h4>
                                 <a href="{{ route('shops.create') }}" class="btn btn-base-1 btn-icon-left">
                                     {{__('Apply Now')}}
-                                </a>
+                                </a> --}}
                             </div>
                         </div> 
                     @endif

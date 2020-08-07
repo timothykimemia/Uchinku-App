@@ -41,7 +41,15 @@
                                 <div class="form-box-content p-3">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <label>{{__('Shop Name')}} <span class="required-star">*</span></label>
+                                            <label>{{__('Store Name English')}} <span class="required-star">*</span></label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name')}}" name="name" value="{{ $shop->name }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>{{__('Store Name Chiniese')}} <span class="required-star">*</span></label>
                                         </div>
                                         <div class="col-md-10">
                                             <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name')}}" name="name" value="{{ $shop->name }}" required>
@@ -56,13 +64,14 @@
                                                 <input type="number" min="0" class="form-control mb-3" placeholder="{{__('Shipping Cost')}}" name="shipping_cost" value="{{ $shop->shipping_cost }}" required>
                                             </div>
                                         </div>
+                                        
                                     @endif
                                     <div class="row mb-3">
                                         <div class="col-md-2">
-                                            <label>{{__('Pickup Points')}} <span class="required-star"></span></label>
+                                            <label>{{__('Outlets Location')}} <span class="required-star"></span></label>
                                         </div>
                                         <div class="col-md-10">
-                                            <select class="form-control mb-3 selectpicker" data-placeholder="Select Pickup Point" id="pick_up_point" name="pick_up_point_id[]" multiple>
+                                            <select class="form-control mb-3 selectpicker" data-placeholder="Locations" id="pick_up_point" name="pick_up_point_id[]" multiple>
                                                 @foreach (\App\PickupPoint::all() as $pick_up_point)
                                                     @if (Auth::user()->shop->pick_up_point_id != null)
                                                         <option value="{{ $pick_up_point->id }}" @if (in_array($pick_up_point->id, json_decode(Auth::user()->shop->pick_up_point_id))) selected @endif>{{ $pick_up_point->name }}</option>
@@ -98,15 +107,15 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <label>{{__('Meta Title')}} <span class="required-star">*</span></label>
+                                            <label>{{__('Shop Title')}} <span class="required-star">*</span></label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control mb-3" placeholder="{{__('Meta Title')}}" name="meta_title" value="{{ $shop->meta_title }}" required>
+                                            <input type="text" class="form-control mb-3" placeholder="{{__(' Example "electronic dealers" ')}}" name="meta_title" value="{{ $shop->meta_title }}" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <label>{{__('Meta Description')}} <span class="required-star">*</span></label>
+                                            <label>{{__('Shop description Description')}} <span class="required-star">*</span></label>
                                         </div>
                                         <div class="col-md-10">
                                             <textarea name="meta_description" rows="6" class="form-control mb-3" required>{{ $shop->meta_description }}</textarea>

@@ -12,6 +12,7 @@ use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PublicSslCommerzPaymentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AffiliateController;
+use App\Http\Controllers\ShippingagentController;
 use App\Http\Controllers\PaytmController;
 use App\Order;
 use App\BusinessSetting;
@@ -120,6 +121,11 @@ class CheckoutController extends Controller
         if (\App\Addon::where('unique_identifier', 'affiliate_system')->first() != null && \App\Addon::where('unique_identifier', 'affiliate_system')->first()->activated) {
             $affiliateController = new AffiliateController;
             $affiliateController->processAffiliatePoints($order);
+        }
+         
+        if (\App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null && \App\Addon::where('unique_identifier', 'shippingagent_system')->first()->activated) {
+            $shippingagentController = new ShippingagentController;
+            $shippingagentController->processShippingagentPoints($order);
         }
 
         if (\App\Addon::where('unique_identifier', 'club_point')->first() != null && \App\Addon::where('unique_identifier', 'club_point')->first()->activated) {

@@ -230,13 +230,13 @@
                                     <a class="nav-link" href="{{route('sellers.index')}}">{{__('Vendor List')}} @if($sellers > 0)<span class="pull-right badge badge-info">{{ $sellers }}</span> @endif</a>
                                 </li>
                                 <li class="{{ areActiveRoutes(['withdraw_requests_all'])}}">
-                                    <a class="nav-link" href="{{ route('withdraw_requests_all') }}">{{__('Seller Withdraw Requests')}}</a> 
+                                    <a class="nav-link" href="{{ route('withdraw_requests_all') }}">{{__('vendor Withdraw Requests')}}</a> 
                                 </li>
                                 <li class="{{ areActiveRoutes(['sellers.payment_histories'])}}">
-                                    <a class="nav-link" href="{{ route('sellers.payment_histories') }}">{{__('Seller Payments')}}</a>
+                                    <a class="nav-link" href="{{ route('sellers.payment_histories') }}">{{__('Vendor Payments')}}</a>
                                 </li>
                                 <li class="{{ areActiveRoutes(['business_settings.vendor_commission'])}}">
-                                    <a class="nav-link" href="{{ route('business_settings.vendor_commission') }}">{{__('Seller Commission')}}</a>
+                                    <a class="nav-link" href="{{ route('business_settings.vendor_commission') }}">{{__('Vendor Commission')}}</a>
                                 </li>
                                 <li class="{{ areActiveRoutes(['seller_verification_form.index'])}}">
                                     <a class="nav-link" href="{{route('seller_verification_form.index')}}">{{__('Vendor Verification Form')}}</a>
@@ -254,7 +254,7 @@
                         <li>
                             <a href="#">
                                 <i class="fa fa-user-plus"></i>
-                                <span class="menu-title">{{__('Customers Managemnt')}}</span>
+                                <span class="menu-title">{{__('Customers Management')}}</span>
                                 <i class="arrow"></i>
                             </a>
 
@@ -272,15 +272,42 @@
                         @php
                             $conversation = \App\Conversation::where('receiver_id', Auth::user()->id)->where('receiver_viewed', '1')->get();
                         @endphp
-                        <li class="{{ areActiveRoutes(['conversations.admin_index', 'conversations.admin_show'])}}">
-                            <a class="nav-link" href="{{ route('conversations.admin_index') }}">
-                                <i class="fa fa-comment"></i>
-                                <span class="menu-title">{{__('Conversations')}}</span>
-                                @if (count($conversation) > 0)
-                                    <span class="pull-right badge badge-info">{{ count($conversation) }}</span>
-                                @endif
+                      
+                       
+                        @if (\App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null)
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user-plus"></i>
+                                <span class="menu-title">{{__('Shipping Agents Management')}}</span>
+                                <i class="arrow"></i>
                             </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse">
+                                <li class="{{ areActiveRoutes(['shippingagent.configs'])}}">
+                                    <a class="nav-link" href="{{route('shippingagent.configs')}}">{{__('Shipping agent Verification form ')}}</a>
+                                </li>
+                                <li class="{{ areActiveRoutes(['shippiangagent.index'])}}">
+                                    <a class="nav-link" href="{{route('shippingagent.index')}}">{{__('Shipping agent Options')}}</a>
+                                </li>
+                                <li class="{{ areActiveRoutes(['shippinagent.users', 'shippianagent_users.show_verification_request', 'shippingagent_user.payment_history'])}}">
+                                    <a class="nav-link" href="{{route('shippingagent.users')}}">{{__('Shipping agent Users')}}</a>
+                                </li>
+                                <li class="{{ areActiveRoutes(['refferals.users'])}}">
+                                    <a class="nav-link" href="{{route('refferals.users')}}">{{__('Refferal Users')}}</a>
+                                </li>
+                            </ul>
                         </li>
+                    @endif
+                    <li class="{{ areActiveRoutes(['conversations.admin_index', 'conversations.admin_show'])}}">
+                        <a class="nav-link" href="{{ route('conversations.admin_index') }}">
+                            <i class="fa fa-comment"></i>
+                            <span class="menu-title">{{__('Conversations')}}</span>
+                            @if (count($conversation) > 0)
+                                <span class="pull-right badge badge-info">{{ count($conversation) }}</span>
+                            @endif
+                        </a>
+                    </li>
 
                         <li>
                             <a href="#">
@@ -463,7 +490,7 @@
                             </ul>
                         </li>
                         @endif
-
+{{-- 
                         @if (\App\Addon::where('unique_identifier', 'affiliate_system')->first() != null)
                             <li>
                                 <a href="#">
@@ -488,7 +515,10 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif
+                        @endif --}}
+
+
+                       
 
                         @if (\App\Addon::where('unique_identifier', 'offline_payment')->first() != null)
                             <li>
@@ -614,9 +644,9 @@
                         </li>
                         @endif
                         @if(Auth::user()->user_type == 'admin' || in_array('15', json_decode(Auth::user()->staff->role->permissions)))
-                            <li class="{{ areActiveRoutes(['addons.index', 'addons.create'])}}">
+                            {{-- <li class="{{ areActiveRoutes(['addons.index', 'addons.create'])}}">
                                 <a class="nav-link" href="{{ route('addons.index') }}">
-                                    {{-- <i class="fa fa-wrench"></i>
+                                    <i class="fa fa-wrench"></i>
                                     <span class="menu-title">{{__('Addon Manager')}}</span> --}}
                                 </a>
                             </li>

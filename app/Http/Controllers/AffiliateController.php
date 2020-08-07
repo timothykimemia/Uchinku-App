@@ -71,7 +71,7 @@ class AffiliateController extends Controller
 
     public function config_store(Request $request){
         $form = array();
-        $select_types = ['select', 'multi_select', 'radio'];
+        $select_types = ['select', 'multi_select', 'radio', 'calender'];
         $j = 0;
         for ($i=0; $i < count($request->type); $i++) {
             $item['type'] = $request->type[$i];

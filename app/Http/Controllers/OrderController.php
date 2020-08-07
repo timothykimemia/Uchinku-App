@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\OTPVerificationController;
 use App\Http\Controllers\ClubPointController;
 use App\Http\Controllers\AffiliateController;
+use App\Http\Controllers\ShippingagentController;
 use App\Order;
 use App\Product;
 use App\Color;
@@ -549,6 +550,11 @@ class OrderController extends Controller
             if (\App\Addon::where('unique_identifier', 'affiliate_system')->first() != null && \App\Addon::where('unique_identifier', 'affiliate_system')->first()->activated) {
                 $affiliateController = new AffiliateController;
                 $affiliateController->processAffiliatePoints($order);
+            }
+
+            if (\App\Addon::where('unique_identifier', 'shippingagent_system')->first() != null && \App\Addon::where('unique_identifier', 'shippingagent_system')->first()->activated) {
+                $shippingagentController = new ShippingagentController;
+                $shippingagentController->processShippingagentPoints($order);
             }
 
             if (\App\Addon::where('unique_identifier', 'club_point')->first() != null && \App\Addon::where('unique_identifier', 'club_point')->first()->activated) {
