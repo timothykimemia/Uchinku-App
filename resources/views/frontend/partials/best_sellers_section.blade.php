@@ -18,7 +18,7 @@
             <div class="px-2 py-4 p-md-4 bg-white shadow-sm">
                 <div class="section-title-1 clearfix">
                     <h3 class="heading-5 strong-700 mb-0 float-left">
-                        <span class="mr-4">{{__('Best Sellers')}}</span>
+                        <span class="mr-4">{{__('Best Vendors')}}</span>
                     </h3>
                     <ul class="inline-links float-right">
                         <li><a  class="active">{{__('Top 20')}}</a></li>

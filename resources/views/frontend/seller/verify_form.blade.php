@@ -25,7 +25,7 @@
                                         <ul class="breadcrumb">
                                             <li><a href="{{ route('home') }}">{{__('Home')}}</a></li>
                                             <li><a href="{{ route('dashboard') }}">{{__('Dashboard')}}</a></li>
-                                            <li class="active"><a href="{{ route('shops.index') }}">{{__('Shop Settings')}}</a></li>
+                                            <li class="active"><a href="{{ route('shops.index') }}">{{__('Shop Settings ddddd')}}</a></li>
                                         </ul>
                                     </div>
                                 </div>

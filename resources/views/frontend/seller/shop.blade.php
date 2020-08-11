@@ -25,7 +25,7 @@
                                         <ul class="breadcrumb">
                                             <li><a href="{{ route('home') }}">{{__('Home')}}</a></li>
                                             <li><a href="{{ route('dashboard') }}">{{__('Dashboard')}}</a></li>
-                                            <li class="active"><a href="{{ route('shops.index') }}">{{__('Shop Settings')}}</a></li>
+                                            <li class="active"><a href="{{ route('shops.index') }}">{{__('Shop Settings ddd')}}</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                             @csrf
                             <div class="form-box bg-white mt-4">
                                 <div class="form-box-title px-3 py-2">
-                                    {{__('Basic info')}}
+                                    {{__('Basic info')}}   {{__('')}}
                                 </div>
                                 <div class="form-box-content p-3">
                                     <div class="row">
@@ -44,7 +44,7 @@
                                             <label>{{__('Store Name English')}} <span class="required-star">*</span></label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name')}}" name="name" value="{{ $shop->name }}" required>
+                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name')}}" name="name"  readonly = "true" value="{{ $shop->name }}" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -52,7 +52,7 @@
                                             <label>{{__('Store Name Chiniese')}} <span class="required-star">*</span></label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name')}}" name="name" value="{{ $shop->name }}" required>
+                                            <input type="text" class="form-control mb-3" placeholder="{{__('Shop Name')}}" name="name"  readonly = "true" value="{{ $shop->name }}" required>
                                         </div>
                                     </div>
                                     @if (\App\BusinessSetting::where('type', 'shipping_type')->first()->value == 'seller_wise_shipping')
@@ -87,7 +87,7 @@
                                             <label>{{__('Logo')}} <small>(120x120)</small></label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="file" name="logo" id="file-2" class="custom-input-file custom-input-file--4" data-multiple-caption="{count} files selected" accept="image/*" />
+                                            <input type="file" name="logo" id="file-2" readonly = "true" class="custom-input-file custom-input-file--4" data-multiple-caption="{count} files selected" accept="image/*" />
                                             <label for="file-2" class="mw-100 mb-3">
                                                 <span></span>
                                                 <strong>
@@ -102,7 +102,7 @@
                                             <label>{{__('Address')}} <span class="required-star">*</span></label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control mb-3" placeholder="{{__('Address')}}" name="address" value="{{ $shop->address }}" required>
+                                            <input type="text" class="form-control mb-3" placeholder="{{__('Address')}}" name="address" readonly = "true" value="{{ $shop->address }}" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -220,6 +220,8 @@
                             </div>
                             <div class="text-right mt-4">
                                 <button type="submit" class="btn btn-styled btn-base-1">{{__('Save')}}</button>
+                                <strong>{{$message}}</strong> 
+
                             </div>
                         </form>
                     </div>

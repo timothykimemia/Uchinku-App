@@ -212,7 +212,7 @@ class ShopController extends Controller
     {
         //
     }
-
+   
     public function verify_form(Request $request)
     {
         if(Auth::user()->seller->verification_info == null){
@@ -264,4 +264,6 @@ class ShopController extends Controller
         flash(__('Sorry! Something went wrong.'))->error();
         return back();
     }
+
+    
 }

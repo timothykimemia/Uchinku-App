@@ -85,7 +85,8 @@ class AffiliateController extends Controller
         $affiliate_config = AffiliateConfig::where('type', 'verification_form')->first();
         $affiliate_config->value = json_encode($form);
         if($affiliate_config->save()){
-            flash("Verification form updated successfully")->success();
+            flash("Verification form updated successfully")->success();  
+            
             return back();
         }
     }
